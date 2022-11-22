@@ -1,17 +1,12 @@
 import Image from 'next/image';
 import Avatar from './Avatar';
 import ChangeUsername from './ChangeUsername';
-import { useState } from 'react';
 
-function Header({ user }) {
-  const [userProfile, setUserProfile] = useState({
-    user,
-    username: '',
-  });
+function Header({ user, setUserProfile, userProfile }) {
   console.log(userProfile);
   return (
-    <div className="text-pink-500">
-      <div className="">
+    <div className="sticky top-0 p-5 z-50 bg-black shadow-sm border-b-2 border-pink-700 text-pink-500">
+      <div className="grid grid-cols-5 lg:grid-cols-6 items-end lg:items-center">
         <div className="relative h-24 w-24 mx-auto hidden lg:inline-grid">
           <Image
             src="https://links.papareact.com/3pi"
@@ -21,7 +16,7 @@ function Header({ user }) {
             className="rounded-full"
           />
         </div>
-        <div>
+        <div className="col-span-4 text-left lg:text-center">
           <div className="h-48 w-48 relative lg:mx-auto border-pink-500 border-8 rounded-full">
             <Avatar user={user} />
           </div>
